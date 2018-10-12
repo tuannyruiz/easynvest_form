@@ -7,6 +7,18 @@
   padding: 0;
   vertical-align: baseline; }
 
+input::-webkit-input-placeholder {
+  opacity: 0; }
+
+input::-moz-placeholder {
+  opacity: 0; }
+
+input:-ms-input-placeholder {
+  opacity: 0; }
+
+input:-moz-placeholder {
+  opacity: 0; }
+
 .sign-up__send {
   display: block;
   border: none;
@@ -33,17 +45,21 @@
     background: #00c8b3;
     color: #ffffff;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 30px;
     width: 100%; }
     .sign-up__send:hover {
       transition: background 0.2s ease-in;
       background: rgba(0, 200, 179, 0.7); }
+    .sign-up__send:active {
+      transform: scale(0.98); }
 
 .field {
   display: flex;
   flex-flow: column-reverse;
   margin-top: 30px;
   position: relative; }
+  .field:nth-of-type(3), .field:nth-of-type(4) {
+    height: 78px; }
   .field__label {
     bottom: 13px;
     font-size: 30px;
@@ -56,15 +72,25 @@
     border: none;
     border-bottom: 2px solid black;
     height: 60px;
-    font-size: 30px;
+    font-size: 25px;
     padding: 0 10px;
     width: 100%;
     z-index: 2; }
     .field__input:focus {
-      transition: border-bottom 0.2s ease-in;
+      transition: all 0.2s ease-in;
       border-bottom: 2px solid #00c8b3;
       outline: none; }
       .field__input:focus + label {
         transition: all 0.2s ease-in;
         bottom: 50px;
         font-size: 20px; }
+    .field__input:not(:placeholder-shown) + label {
+      transition: all 0.2s ease-in;
+      bottom: 50px;
+      font-size: 20px; }
+  .field__error {
+    color: #eb4a46;
+    margin-top: 5px;
+    padding-left: 10px; }
+    .field__error--hidden {
+      visibility: hidden; }
