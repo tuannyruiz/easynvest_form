@@ -1,0 +1,53 @@
+.sign-up {
+  margin: 0 auto;
+  width: 40%;
+
+  &__send {
+    @extend %btn-style;
+
+    @include smooth-transition(background);
+
+    background: $blue;
+    color: $white;
+    cursor: pointer;
+    margin-top: $gutter-lg;
+    width: 100%;
+
+    &:hover {
+      @include smooth-transition(background);
+
+      background: rgba($blue, 0.7);
+    }
+  }
+}
+
+.input-group {
+  position: relative;
+  margin-top: $gutter-lg;
+
+  &__label {
+    bottom: 15px;
+    font-size: 30px;
+    position: absolute;
+    color: $almost-white;
+    padding-left: 10px;
+  }
+
+  &__input {
+    @include smooth-transition(border-bottom);
+
+    border: none;
+    border-bottom: 2px solid black;
+    height: 60px;
+    font-size: 30px;
+    padding: 0 10px;
+    width: 100%;
+    
+    &:focus {
+      @include smooth-transition(border-bottom);
+
+      border-bottom: 2px solid $blue;
+      outline: none;
+    }
+  }
+}
