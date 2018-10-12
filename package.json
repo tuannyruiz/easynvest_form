@@ -1,0 +1,16 @@
+{
+  "name": "easynvest",
+  "version": "1.0.0",
+  "description": "Teste para a vaga de desenvolvedor front-end da Easynvest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass -w assets/css/sass -o assets/css"
+  },
+  "author": "Tuanny Ruiz <tuannyruiz@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.9.3"
+  },
+  "devDependencies": {}
+}

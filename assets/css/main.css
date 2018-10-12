@@ -1,0 +1,70 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline; }
+
+.sign-up__send {
+  display: block;
+  border: none;
+  padding: 20px;
+  border-radius: 50px;
+  font-size: 30px;
+  font-weight: 600; }
+
+.sign-up {
+  margin: 0 auto;
+  padding: 30px;
+  width: 100%; }
+  @media (min-width: 768px) {
+    .sign-up {
+      width: 80%; } }
+  @media (min-width: 992px) {
+    .sign-up {
+      width: 60%; } }
+  @media (min-width: 1200px) {
+    .sign-up {
+      width: 45%; } }
+  .sign-up__send {
+    transition: background 0.2s ease-in;
+    background: #00c8b3;
+    color: #ffffff;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%; }
+    .sign-up__send:hover {
+      transition: background 0.2s ease-in;
+      background: rgba(0, 200, 179, 0.7); }
+
+.field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-top: 30px;
+  position: relative; }
+  .field__label {
+    bottom: 13px;
+    font-size: 30px;
+    color: #efeeed;
+    padding-left: 10px;
+    position: absolute; }
+  .field__input {
+    transition: border-bottom 0.2s ease-in;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    height: 60px;
+    font-size: 30px;
+    padding: 0 10px;
+    width: 100%;
+    z-index: 2; }
+    .field__input:focus {
+      transition: border-bottom 0.2s ease-in;
+      border-bottom: 2px solid #00c8b3;
+      outline: none; }
+      .field__input:focus + label {
+        transition: all 0.2s ease-in;
+        bottom: 50px;
+        font-size: 20px; }
