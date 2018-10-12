@@ -1,0 +1,32 @@
+// PROJECT COLORS
+$red: #eb4a46;
+
+$blue: #00c8b3;
+
+$gray: #f6f6f6;
+$light-gray: #dddcdc;
+$dark-gray: #333333;
+
+$almost-white: #efeeed;
+$white: #ffffff;
+
+// PROJECT SPACING
+$gutter-xs: 5px;
+$gutter-sm: 10px;
+$gutter-md: 15px;
+$gutter-lg: 20px;
+$gutter-xl: 30px;
+
+// COMPONENTS PATTERN
+%btn-style {
+  display: block;
+  border: none;
+  padding: 20px;
+  border-radius: 50px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+@mixin smooth-transition($property) {
+  transition: $property 0.2s ease-in;
+}
