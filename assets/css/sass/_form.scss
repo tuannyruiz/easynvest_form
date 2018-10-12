@@ -1,6 +1,19 @@
 .sign-up {
   margin: 0 auto;
-  width: 40%;
+  padding: 30px;
+  width: 100%;
+
+  @include breakpoint(md) {
+    width: 80%;
+  }
+
+  @include breakpoint(lg) {
+    width: 60%;
+  }
+
+  @include breakpoint(xl) {
+    width: 45%;
+  }
 
   &__send {
     @extend %btn-style;
@@ -21,33 +34,43 @@
   }
 }
 
-.input-group {
+.field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-top: $gutter-xl;
   position: relative;
-  margin-top: $gutter-lg;
 
   &__label {
-    bottom: 15px;
+    bottom: 13px;
     font-size: 30px;
-    position: absolute;
     color: $almost-white;
     padding-left: 10px;
+    position: absolute;
   }
 
   &__input {
     @include smooth-transition(border-bottom);
 
+    background: transparent;
     border: none;
     border-bottom: 2px solid black;
     height: 60px;
     font-size: 30px;
     padding: 0 10px;
     width: 100%;
+    z-index: 2;
     
     &:focus {
       @include smooth-transition(border-bottom);
 
       border-bottom: 2px solid $blue;
       outline: none;
+
+      + label {
+        @include smooth-transition(all);
+        bottom: 50px;
+        font-size: 20px;
+      }
     }
   }
 }
