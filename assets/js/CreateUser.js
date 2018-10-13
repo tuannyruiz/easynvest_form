@@ -17,7 +17,7 @@ class CreateUser {
 
   createStorage() {
 		if(this.storage.getItem(this.tableName) == null) {
-      var users = {};
+      let users = {};
       users.items = [];
       this.storage.setItem(this.tableName, this._toJSONString(users));
     }
@@ -43,12 +43,12 @@ class CreateUser {
         return response.json();
       })
       .then(function(data) {
-        console.log('Data', data);
-      })
+        return data;
+    })
   }
 
   _toJSONString(obj) {
-    var str = JSON.stringify(obj);
+    let str = JSON.stringify(obj);
     return str;
   }
 }
