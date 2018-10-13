@@ -1,0 +1,18 @@
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @include breakpoint(md) {
+    width: 750px;
+  }
+  
+  @include breakpoint(lg) {
+    width: 970px;
+  }
+
+  @include breakpoint(xl) {
+    width: 1170px;
+  }
+}

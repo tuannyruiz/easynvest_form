@@ -1,18 +1,27 @@
-.sign-up {
-  margin: 0 auto;
-  padding: 30px;
-  width: 100%;
-
-  @include breakpoint(md) {
-    width: 80%;
+.register {
+  &__title {
+    color: $blue;
+    font-size: 32px;
+    margin-top: $gutter-xl;
+    text-align: center;
   }
 
-  @include breakpoint(lg) {
-    width: 60%;
-  }
-
-  @include breakpoint(xl) {
-    width: 45%;
+  &__form {
+    margin: 0 auto;
+    padding: 30px;
+    width: 100%;
+  
+    @include breakpoint(md) {
+      width: 80%;
+    }
+  
+    @include breakpoint(lg) {
+      width: 65%;
+    }
+  
+    @include breakpoint(xl) {
+      width: 50%;
+    }
   }
 
   &__send {
@@ -88,6 +97,14 @@
 
         bottom: 50px;
         font-size: 20px;
+      }
+    }
+   
+    &--error {
+      border-bottom: 2px solid $red;
+
+      &:focus{
+        border-bottom: 2px solid $red;
       }
     }
   }
