@@ -1,18 +1,54 @@
 class CreateUser {
   constructor() {
-    this.nameInput = document.getElementById('name');
+    this.tableName = "easynvest-users";
+    this.storage = localStorage;
 
+    this.nameInput = document.getElementById('name');
+    this.emailInput = document.getElementById('email');
+    this.cpfInput = document.getElementById('cpf');
+    this.phoneInput = document.getElementById('phone');
+
+    this.nameInputError = document.getElementById('name-error');
     this.sendButton = document.getElementById('send');
+
+    this.createStorage();
+    this.validateText();
   }
 
-  validateText(){
-    this.nameInputValue = document.getElementById('name').value;
-    this.nameInputError = document.getElementById('name-error');
+  createStorage() {
+		if(this.storage.getItem(this.tableName) == null) {
+      var users = {};
+      users.items = [];
+      this.storage.setItem(this.tableName, this._toJSONString(users));
+    }
+  }
+
+  validateText() {
+    this.nameInputValue = this.nameInput.value;
 
     if (this.nameInputValue.length < 3) {
       this.nameInputError.classList.remove("field__error--hidden");
+      this.nameInput.classList.add('field__input--error');
     } else {
       this.nameInputError.classList.add("field__error--hidden");
+      this.nameInput.classList.remove('field__input--error');
     }
-}
+  }
+
+  _getInitialUsers() {
+    const url = "https://private-21e8de-rafaellucio.apiary-mock.com/users";
+
+    fetch(url)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        console.log('Data', data);
+      })
+  }
+
+  _toJSONString(obj) {
+    var str = JSON.stringify(obj);
+    return str;
+  }
 }
