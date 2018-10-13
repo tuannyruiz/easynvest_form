@@ -5,7 +5,6 @@ class CreateUser {
 
     this.handleAddNewUser = this.handleAddNewUser.bind(this);
 
-
     this.nameInput = document.getElementById('name');
     this.emailInput = document.getElementById('email');
     this.cpfInput = document.getElementById('cpf');
@@ -41,13 +40,14 @@ class CreateUser {
 
   handleAddNewUser() {
     let userObj = {
-      name: this.nameValue = document.getElementById('name').value,
-      email: this.emailValue = document.getElementById('email').value,
-      cpf: this.cpfValue = document.getElementById('cpf').value,
-      phone: this.phoneValue = document.getElementById('phone').value
+      name: this.nameInput.value,
+      email: this.emailInput.value,
+      cpf: this.cpfInput.value,
+      phone: this.phoneInput.value
     }
 
     this._addNewUser(userObj);
+    this._clearForm();
   }
 
   _getInitialUsers() {
@@ -70,6 +70,13 @@ class CreateUser {
     items.push(values);
     
     this.storage.setItem(this.storageName, this._toJSONString(usersCopy));
+  }
+
+  _clearForm() {
+    this.nameInput.value = '';
+    this.emailInput.value = '';
+    this.cpfInput.value = '';
+    this.phoneInput.value = '';
   }
 
   _toJSONString(obj) {
