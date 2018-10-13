@@ -1,7 +1,10 @@
 class CreateUser {
   constructor() {
-    this.tableName = "easynvest-users";
+    this.storageName = "easynvest-users";
     this.storage = localStorage;
+
+    this.handleAddNewUser = this.handleAddNewUser.bind(this);
+
 
     this.nameInput = document.getElementById('name');
     this.emailInput = document.getElementById('email');
@@ -12,14 +15,15 @@ class CreateUser {
     this.sendButton = document.getElementById('send');
 
     this.createStorage();
+    this.sendButton.addEventListener('click', this.handleAddNewUser);
     this.validateText();
   }
 
   createStorage() {
-		if(this.storage.getItem(this.tableName) == null) {
+		if(this.storage.getItem(this.storageName) == null) {
       let users = {};
       users.items = [];
-      this.storage.setItem(this.tableName, this._toJSONString(users));
+      this.storage.setItem(this.storageName, this._toJSONString(users));
     }
   }
 
@@ -35,6 +39,17 @@ class CreateUser {
     }
   }
 
+  handleAddNewUser() {
+    let userObj = {
+      name: this.nameValue = document.getElementById('name').value,
+      email: this.emailValue = document.getElementById('email').value,
+      cpf: this.cpfValue = document.getElementById('cpf').value,
+      phone: this.phoneValue = document.getElementById('phone').value
+    }
+
+    this._addNewUser(userObj);
+  }
+
   _getInitialUsers() {
     const url = "https://private-21e8de-rafaellucio.apiary-mock.com/users";
 
@@ -47,8 +62,23 @@ class CreateUser {
     })
   }
 
+  _addNewUser(values) {
+    var users = this.storage.getItem(this.storageName);
+    var usersObject = this._toJSONObject(users);
+    var usersCopy = usersObject;
+    var items = usersCopy.items;
+    items.push(values);
+    
+    this.storage.setItem(this.storageName, this._toJSONString(usersCopy));
+  }
+
   _toJSONString(obj) {
     let str = JSON.stringify(obj);
     return str;
+  }
+
+  _toJSONObject(str) {
+    var obj = JSON.parse(str);
+    return obj;
   }
 }
