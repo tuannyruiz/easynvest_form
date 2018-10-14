@@ -1,0 +1,51 @@
+.show {
+  &__title {  
+    @extend %title-style;
+  }
+}
+
+.card {
+  border: 1px solid $gray;
+  display: flex;
+  flex-direction: column;
+  margin-top: $gutter-lg;
+  padding: $gutter-lg;
+  width: 100%;
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__rule {
+    border-top: 1px solid $gray;
+    margin: $gutter-lg 0;
+  }
+
+  &__actions {
+    align-self: flex-end;
+  }
+
+  &__button {
+    @include btn-style(inline-block, 10px 20px, 16px);
+
+    color: $white;
+    cursor: pointer;
+
+    &--edit {
+      background: $blue;
+
+      &:hover {
+        background: rgba($blue, 0.7);
+      }
+    }
+
+    &--delete {
+      background: $red;
+
+      &:hover {
+        background: rgba($red, 0.7);
+      }
+    }
+  }
+}
