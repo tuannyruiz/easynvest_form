@@ -48,6 +48,7 @@ class CreateUser {
 
     this._addNewUser(userObj);
     this._clearForm();
+    return;
   }
 
   _getInitialUsers() {
@@ -68,7 +69,7 @@ class CreateUser {
     var usersCopy = usersObject;
     var items = usersCopy.items;
     items.push(values);
-    
+
     this.storage.setItem(this.storageName, this._toJSONString(usersCopy));
   }
 
