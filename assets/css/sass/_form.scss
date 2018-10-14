@@ -1,9 +1,6 @@
 .register {
   &__title {
-    color: $blue;
-    font-size: 32px;
-    margin-top: $gutter-xl;
-    text-align: center;
+    @extend %title-style;
   }
 
   &__form {
@@ -25,7 +22,7 @@
   }
 
   &__send {
-    @extend %btn-style;
+    @include btn-style;
 
     @include smooth-transition(background);
 
