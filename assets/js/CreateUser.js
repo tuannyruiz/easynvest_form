@@ -63,6 +63,11 @@ class CreateUser {
     })
   }
 
+  _validateEmail(email) {
+    let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
+
   _addNewUser(values) {
     var users = this.storage.getItem(this.storageName);
     var usersObject = this._toJSONObject(users);
