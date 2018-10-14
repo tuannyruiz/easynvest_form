@@ -20,15 +20,22 @@ $gutter-lg: 20px;
 $gutter-xl: 30px;
 
 // COMPONENTS PATTERN
-%btn-style {
-  display: block;
+@mixin btn-style($display: block, $padding: 20px, $font-size: 30px) {
+  display: $display;
   border: none;
-  padding: 20px;
   border-radius: 50px;
-  font-size: 30px;
+  font-size: $font-size;
   font-weight: 600;
+  padding: $padding;
 }
 
 @mixin smooth-transition($property) {
   transition: $property 0.2s ease-in;
+}
+
+%title-style {
+  color: $blue;
+  font-size: 32px;
+  margin-top: $gutter-xl;
+  text-align: center;
 }
